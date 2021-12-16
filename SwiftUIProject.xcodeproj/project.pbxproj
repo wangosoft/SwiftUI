@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */; };
-		CC956FE3276BCBD30041126F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE2276BCBD30041126F /* ContentView.swift */; };
+		CC956FE3276BCBD30041126F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE2276BCBD30041126F /* MainView.swift */; };
 		CC956FE5276BCBD40041126F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC956FE4276BCBD40041126F /* Assets.xcassets */; };
 		CC956FE8276BCBD40041126F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC956FE7276BCBD40041126F /* Preview Assets.xcassets */; };
 		CC956FF3276BCBD40041126F /* SwiftUIProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FF2276BCBD40041126F /* SwiftUIProjectTests.swift */; };
 		CC956FFE276BCBD40041126F /* SwiftUIProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FFD276BCBD40041126F /* SwiftUIProjectUITests.swift */; };
+		CC95700F276BCD8F0041126F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95700E276BCD8F0041126F /* ListView.swift */; };
+		CC957011276BD9680041126F /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC957010276BD9680041126F /* FruitModel.swift */; };
+		CC957013276BDB960041126F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC957012276BDB960041126F /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,7 @@
 /* Begin PBXFileReference section */
 		CC956FDD276BCBD30041126F /* SwiftUIProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectApp.swift; sourceTree = "<group>"; };
-		CC956FE2276BCBD30041126F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC956FE2276BCBD30041126F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CC956FE4276BCBD40041126F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC956FE7276BCBD40041126F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC956FE9276BCBD40041126F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +48,9 @@
 		CC956FF9276BCBD40041126F /* SwiftUIProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC956FFD276BCBD40041126F /* SwiftUIProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectUITests.swift; sourceTree = "<group>"; };
 		CC956FFF276BCBD40041126F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC95700E276BCD8F0041126F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		CC957010276BD9680041126F /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
+		CC957012276BDB960041126F /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +101,10 @@
 		CC956FDF276BCBD30041126F /* SwiftUIProject */ = {
 			isa = PBXGroup;
 			children = (
+				CC95700D276BCD560041126F /* Model */,
+				CC95700C276BCD4F0041126F /* View */,
+				CC95700B276BCD490041126F /* ViewModel */,
 				CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */,
-				CC956FE2276BCBD30041126F /* ContentView.swift */,
 				CC956FE4276BCBD40041126F /* Assets.xcassets */,
 				CC956FE9276BCBD40041126F /* Info.plist */,
 				CC956FE6276BCBD40041126F /* Preview Content */,
@@ -128,6 +136,31 @@
 				CC956FFF276BCBD40041126F /* Info.plist */,
 			);
 			path = SwiftUIProjectUITests;
+			sourceTree = "<group>";
+		};
+		CC95700B276BCD490041126F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC957012276BDB960041126F /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CC95700C276BCD4F0041126F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC956FE2276BCBD30041126F /* MainView.swift */,
+				CC95700E276BCD8F0041126F /* ListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC95700D276BCD560041126F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC957010276BD9680041126F /* FruitModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC956FE3276BCBD30041126F /* ContentView.swift in Sources */,
+				CC956FE3276BCBD30041126F /* MainView.swift in Sources */,
+				CC957013276BDB960041126F /* BaseViewModel.swift in Sources */,
 				CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */,
+				CC957011276BD9680041126F /* FruitModel.swift in Sources */,
+				CC95700F276BCD8F0041126F /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
