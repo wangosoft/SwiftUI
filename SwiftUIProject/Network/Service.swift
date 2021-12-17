@@ -10,6 +10,7 @@ import UIKit
 
 protocol ServiceProtocol {
     func getFruits(completion: @escaping (_ response: FruitsModelResponse?, _ error: NetworkError?) -> Void)
+    func getFruitDetail(productId: String, completion: @escaping (_ response: FruitModel?, _ error: NetworkError?) -> Void)
 }
 
 class Service: ServiceProtocol {
@@ -25,20 +26,23 @@ class Service: ServiceProtocol {
             }
         }
     }
-}
-
-class ImageLoaderService: ObservableObject {
-    @Published var image: UIImage = UIImage()
-        
-    func loadImage(for urlString: String) {
-        guard let url = URL(string: urlString) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                self.image = UIImage(data: data) ?? UIImage()
+    
+    func getFruitDetail(productId: String, completion: @escaping (FruitModel?, NetworkError?) -> Void) {
+        Network.shared.request(httpMethod: .get, urlString: String(format: ServiceConstants.Url.fruitDetail, productId)) { (result: Result<FruitModel?, NetworkError>) in
+            switch result {
+            case .success(let fruitModel):
+                completion(fruitModel, nil)
+            case .failure(let error):
+                completion(nil, error)
             }
         }
-        task.resume()
     }
+    
+    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
+        Network.shared.loadImage(urlString: urlString) { image in
+            completion(image)
+        }
+    }
+    
 }
+

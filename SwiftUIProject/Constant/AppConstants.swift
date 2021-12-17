@@ -11,6 +11,11 @@ import SwiftUI
 struct ServiceConstants {
     struct Url {
         static let fruit = "https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/list"
+        static let fruitDetail = "https://s3-eu-west-1.amazonaws.com/developer-application-test/cart/%@/detail"
+    }
+    
+    struct Config {
+        static let timeout = 30.0
     }
 }
 

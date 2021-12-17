@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC7B6ECF276C089B00B18745 /* DynamicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ECE276C089B00B18745 /* DynamicImageView.swift */; };
+		CC7B6ECF276C089B00B18745 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ECE276C089B00B18745 /* URLImage.swift */; };
+		CC7B6ED1276C973B00B18745 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ED0276C973B00B18745 /* DetailView.swift */; };
 		CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */; };
 		CC956FE3276BCBD30041126F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE2276BCBD30041126F /* MainView.swift */; };
 		CC956FE5276BCBD40041126F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC956FE4276BCBD40041126F /* Assets.xcassets */; };
@@ -41,7 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CC7B6ECE276C089B00B18745 /* DynamicImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicImageView.swift; sourceTree = "<group>"; };
+		CC7B6ECE276C089B00B18745 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		CC7B6ED0276C973B00B18745 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		CC956FDD276BCBD30041126F /* SwiftUIProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectApp.swift; sourceTree = "<group>"; };
 		CC956FE2276BCBD30041126F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -92,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				CC95700E276BCD8F0041126F /* ListView.swift */,
-				CC7B6ECE276C089B00B18745 /* DynamicImageView.swift */,
+				CC7B6ECE276C089B00B18745 /* URLImage.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -175,6 +177,7 @@
 			children = (
 				CC7B6ECD276C088100B18745 /* Custom */,
 				CC956FE2276BCBD30041126F /* MainView.swift */,
+				CC7B6ED0276C973B00B18745 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,8 +355,9 @@
 				CC957013276BDB960041126F /* BaseViewModel.swift in Sources */,
 				CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */,
 				CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */,
+				CC7B6ED1276C973B00B18745 /* DetailView.swift in Sources */,
 				CC957020276BED230041126F /* Service.swift in Sources */,
-				CC7B6ECF276C089B00B18745 /* DynamicImageView.swift in Sources */,
+				CC7B6ECF276C089B00B18745 /* URLImage.swift in Sources */,
 				CC957011276BD9680041126F /* FruitModel.swift in Sources */,
 				CC95701E276BEB190041126F /* ListViewModel.swift in Sources */,
 				CC95700F276BCD8F0041126F /* ListView.swift in Sources */,

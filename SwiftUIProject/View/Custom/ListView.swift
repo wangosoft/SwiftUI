@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct ListView: View {
-    var name: String
-    var price: Int
-    var imageUrl: String
+    var fruit: FruitModel
     
     var body: some View {
         ZStack {
             VStack {
-                DynamicImageView(urlString: imageUrl).frame(minWidth: 0, maxWidth: .infinity)
-                Text(name).bold().padding(Padding.betweenItems)
-                Text("\(price)").foregroundColor(Colors.light).bold()
+                URLImage.init(url: fruit.image).frame(maxWidth: .infinity, idealHeight: 150, maxHeight: 150, alignment: .center).padding(Padding.betweenItems)
+                Text(fruit.name).bold().padding(Padding.betweenItems)
+                Text("\(fruit.price)").foregroundColor(Colors.light).bold()
             }
             .padding()
             .background(Color.white)
@@ -25,7 +23,6 @@ struct ListView: View {
             .stroke(Colors.light, lineWidth: Padding.borderWidth)
             .shadow(color: Colors.light, radius: Padding.cornerRadius, x: 0.0, y: 1.0).opacity(0.5))
         }
-        
     }
 }
 

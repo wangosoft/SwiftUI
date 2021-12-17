@@ -14,6 +14,30 @@ protocol NetworkProtocol {
     
 class Network: NetworkProtocol {
     static let shared: Network = Network()
+        
+    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            print("badUrl")
+            completion(nil)
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.cachePolicy = .returnCacheDataElseLoad
+        request.timeoutInterval = ServiceConstants.Config.timeout
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(nil)
+            }
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            completion(UIImage(data: data))
+        }.resume()
+    }
 
     func request<T: Decodable>(httpMethod: HttpMethodType, urlString: String, completion: @escaping (Result<T?, NetworkError>) -> Void) {
         guard let url = URL(string: urlString) else {
@@ -23,8 +47,8 @@ class Network: NetworkProtocol {
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
-        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
-        request.timeoutInterval = 30.0
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        request.timeoutInterval = ServiceConstants.Config.timeout
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
