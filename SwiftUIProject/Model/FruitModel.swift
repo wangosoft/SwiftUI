@@ -12,7 +12,7 @@ struct FruitModel: Decodable, Identifiable {
     var name: String
     var price: Int
     var image: String
-    var description: String
+    var description: String?
     
     private enum CodingKeys : String, CodingKey {
         case id = "product_id", name, price, image, description

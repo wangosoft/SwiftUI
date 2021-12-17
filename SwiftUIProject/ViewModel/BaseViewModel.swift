@@ -7,9 +7,6 @@
 
 import Foundation
 
-struct BaseViewModel {
-    
-    func loadImageAsync(url: String, @escaping complation() -> Void) {
-        
-    }
+class BaseViewModel: ObservableObject {
+
 }

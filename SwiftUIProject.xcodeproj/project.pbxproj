@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC7B6ECF276C089B00B18745 /* DynamicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ECE276C089B00B18745 /* DynamicImageView.swift */; };
 		CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */; };
 		CC956FE3276BCBD30041126F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE2276BCBD30041126F /* MainView.swift */; };
 		CC956FE5276BCBD40041126F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC956FE4276BCBD40041126F /* Assets.xcassets */; };
@@ -16,6 +17,10 @@
 		CC95700F276BCD8F0041126F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95700E276BCD8F0041126F /* ListView.swift */; };
 		CC957011276BD9680041126F /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC957010276BD9680041126F /* FruitModel.swift */; };
 		CC957013276BDB960041126F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC957012276BDB960041126F /* BaseViewModel.swift */; };
+		CC957017276BE2200041126F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC957016276BE2200041126F /* Network.swift */; };
+		CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701A276BEA9C0041126F /* AppConstants.swift */; };
+		CC95701E276BEB190041126F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701D276BEB190041126F /* ListViewModel.swift */; };
+		CC957020276BED230041126F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701F276BED230041126F /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC7B6ECE276C089B00B18745 /* DynamicImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicImageView.swift; sourceTree = "<group>"; };
 		CC956FDD276BCBD30041126F /* SwiftUIProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectApp.swift; sourceTree = "<group>"; };
 		CC956FE2276BCBD30041126F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -51,6 +57,10 @@
 		CC95700E276BCD8F0041126F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		CC957010276BD9680041126F /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
 		CC957012276BDB960041126F /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		CC957016276BE2200041126F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CC95701A276BEA9C0041126F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		CC95701D276BEB190041126F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		CC95701F276BED230041126F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC7B6ECD276C088100B18745 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				CC95700E276BCD8F0041126F /* ListView.swift */,
+				CC7B6ECE276C089B00B18745 /* DynamicImageView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		CC956FD4276BCBD30041126F = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +120,10 @@
 		CC956FDF276BCBD30041126F /* SwiftUIProject */ = {
 			isa = PBXGroup;
 			children = (
+				CC957019276BEA8D0041126F /* Constant */,
+				CC957018276BE9D10041126F /* Utility */,
+				CC957015276BE1FD0041126F /* Network */,
+				CC957014276BE1F50041126F /* Extension */,
 				CC95700D276BCD560041126F /* Model */,
 				CC95700C276BCD4F0041126F /* View */,
 				CC95700B276BCD490041126F /* ViewModel */,
@@ -142,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				CC957012276BDB960041126F /* BaseViewModel.swift */,
+				CC95701D276BEB190041126F /* ListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -149,8 +173,8 @@
 		CC95700C276BCD4F0041126F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC7B6ECD276C088100B18745 /* Custom */,
 				CC956FE2276BCBD30041126F /* MainView.swift */,
-				CC95700E276BCD8F0041126F /* ListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +185,37 @@
 				CC957010276BD9680041126F /* FruitModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CC957014276BE1F50041126F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CC957015276BE1FD0041126F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CC957016276BE2200041126F /* Network.swift */,
+				CC95701F276BED230041126F /* Service.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CC957018276BE9D10041126F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CC957019276BEA8D0041126F /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				CC95701A276BEA9C0041126F /* AppConstants.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +348,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC956FE3276BCBD30041126F /* MainView.swift in Sources */,
+				CC957017276BE2200041126F /* Network.swift in Sources */,
 				CC957013276BDB960041126F /* BaseViewModel.swift in Sources */,
 				CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */,
+				CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */,
+				CC957020276BED230041126F /* Service.swift in Sources */,
+				CC7B6ECF276C089B00B18745 /* DynamicImageView.swift in Sources */,
 				CC957011276BD9680041126F /* FruitModel.swift in Sources */,
+				CC95701E276BEB190041126F /* ListViewModel.swift in Sources */,
 				CC95700F276BCD8F0041126F /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
