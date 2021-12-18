@@ -12,7 +12,7 @@ class ListViewModel: BaseViewModel {
 
     func getFruits() {
         isShowing = true
-        isShowError = true
+        isShowError = false
         Service.shared.getFruits { response, error in
             DispatchQueue.main.async { self.isShowing = false }
             if let fruits = response?.products {
