@@ -10,18 +10,18 @@ import SwiftUI
 struct DetailView: View {
     
     var fruit: FruitModel?
-    @ObservedObject var listViewModel: ListViewModel
+    @ObservedObject var detailViewModel: DetailViewModel
 
     init(fruit: FruitModel?) {
-        listViewModel = ListViewModel()
+        detailViewModel = DetailViewModel()
         if let productId = fruit?.id {
-            listViewModel.getFruitDetail(productId: productId)
+            detailViewModel.getFruitDetail(productId: productId)
         }
     }
         
     var body: some View {
         VStack {
-            if let fruit = listViewModel.fruitDetail {
+            if let fruit = detailViewModel.fruitDetail {
                 URLImage(url: fruit.image)
                 Text(fruit.name).bold().padding(Padding.betweenItems)
                 Text("\(fruit.price)").foregroundColor(Colors.light).bold().padding(Padding.betweenItems)

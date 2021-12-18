@@ -24,6 +24,8 @@
 		CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701A276BEA9C0041126F /* AppConstants.swift */; };
 		CC95701E276BEB190041126F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701D276BEB190041126F /* ListViewModel.swift */; };
 		CC957020276BED230041126F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701F276BED230041126F /* Service.swift */; };
+		CC98A32A276E6F6600DCA44F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A329276E6F6600DCA44F /* DetailViewModel.swift */; };
+		CC98A32C276E723300DCA44F /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32B276E723300DCA44F /* CustomProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		CC95701A276BEA9C0041126F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		CC95701D276BEB190041126F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		CC95701F276BED230041126F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		CC98A329276E6F6600DCA44F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		CC98A32B276E723300DCA44F /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			children = (
 				CC95700E276BCD8F0041126F /* ListView.swift */,
 				CC7B6ECE276C089B00B18745 /* URLImage.swift */,
+				CC98A32B276E723300DCA44F /* CustomProgressView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			children = (
 				CC957012276BDB960041126F /* BaseViewModel.swift */,
 				CC95701D276BEB190041126F /* ListViewModel.swift */,
+				CC98A329276E6F6600DCA44F /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -372,7 +378,9 @@
 				CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */,
 				CC7B6ED1276C973B00B18745 /* DetailView.swift in Sources */,
 				CC957020276BED230041126F /* Service.swift in Sources */,
+				CC98A32C276E723300DCA44F /* CustomProgressView.swift in Sources */,
 				CC7B6ECF276C089B00B18745 /* URLImage.swift in Sources */,
+				CC98A32A276E6F6600DCA44F /* DetailViewModel.swift in Sources */,
 				CC957011276BD9680041126F /* FruitModel.swift in Sources */,
 				CC95701E276BEB190041126F /* ListViewModel.swift in Sources */,
 				CC7B6EDA276CE90000B18745 /* Database.xcdatamodeld in Sources */,

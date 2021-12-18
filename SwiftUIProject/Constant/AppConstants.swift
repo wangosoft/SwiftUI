@@ -40,6 +40,7 @@ struct Images {
 
 struct Colors {
     static let light = Color(.lightGray)
+    static let gray = Color.init(red: 230/255, green: 230/255, blue: 230/255)
 }
 
 enum DatabaseEntityTypes: String {

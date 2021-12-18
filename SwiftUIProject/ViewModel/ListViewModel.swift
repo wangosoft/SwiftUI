@@ -8,9 +8,7 @@
 import Foundation
 
 class ListViewModel: BaseViewModel {
- 
     @Published var fruits: [FruitModel] = []
-    @Published var fruitDetail: FruitModel?
 
     func getFruits() {
         Service.shared.getFruits { response, error in
@@ -27,19 +25,4 @@ class ListViewModel: BaseViewModel {
             }
         }
     }
-    func getFruitDetail(productId: String) {
-        Service.shared.getFruitDetail(productId: productId) { response, error in
-            if let fruit = response {
-                DatabaseUtility.shared.update(entity: .fruits, withObject: fruit)
-                DispatchQueue.main.async {
-                    self.fruitDetail = fruit
-                }
-            } else if let _ = error {
-                DispatchQueue.main.async {
-                    self.fruitDetail = DatabaseUtility.shared.fetchObjectsWithId(entity: .fruits, id: productId) 
-                }
-            }
-        }
-    }
-    
 }

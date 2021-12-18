@@ -10,26 +10,27 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var listViewModel: ListViewModel
-    
+
     init() {
         listViewModel = ListViewModel()
     }
-        
+                    
     var body: some View {
         NavigationView {
             let columns: [GridItem] = [
                 GridItem(.flexible()),
                 GridItem(.flexible())
             ]
-            
-            ScrollView {
-                LazyVGrid.init(columns: columns, spacing: Padding.edge) {
-                    ForEach(listViewModel.fruits) { fruit in
-                        NavigationLink(destination: DetailView(fruit: fruit)) {
-                            ListView(fruit: fruit).frame(minWidth: 0, maxWidth: (UIScreen.main.bounds.size.width - Padding.edge * 3) / 2, maxHeight: 200)
+            ZStack {
+                ScrollView {
+                    LazyVGrid.init(columns: columns, spacing: Padding.edge) {
+                        ForEach(listViewModel.fruits) { fruit in
+                            NavigationLink(destination: DetailView(fruit: fruit)) {
+                                ListView(fruit: fruit).frame(minWidth: 0, maxWidth: (UIScreen.main.bounds.size.width - Padding.edge * 3) / 2, maxHeight: 200)
+                            }
                         }
-                    }
-                }.padding(Padding.edge)
+                    }.padding(Padding.edge)
+                }
             }
             .navigationBarTitle(Text("Fruits"))
         }.onAppear() {

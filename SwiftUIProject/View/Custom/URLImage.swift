@@ -7,39 +7,23 @@
 
 import Foundation
 import SwiftUI
-    
-//struct DynamicImageView: View {
-//    var urlString: String
-//    @ObservedObject var imageLoader = ImageLoaderService()
-//    @State var image: UIImage = UIImage()
-//
-//    var body: some View {
-//        Image(uiImage: image)
-//            .resizable()
-//            .aspectRatio(contentMode: .fit)
-//            .onReceive(imageLoader.$image) { image in
-//                self.image = image
-//            }
-//            .onAppear {
-//                imageLoader.loadImage(for: urlString)
-//            }
-//    }
-//}
-
 
 final class ObservableURLImage : ObservableObject {
     @Published var image: Image?
-    
+    @Published var isLoading: Bool = false
+
     let url: String
-    
+            
     init(url: String) {
         self.url = url
     }
     
     func load() {
+        self.isLoading = true
         Service.shared.loadImage(urlString: url) { urlImage in
-            if let img = urlImage {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self.isLoading = false
+                if let img = urlImage {
                     self.image = Image.init(uiImage: img)
                 }
             }
@@ -50,14 +34,17 @@ final class ObservableURLImage : ObservableObject {
 
 struct URLImage: View {
     @ObservedObject private var observableURLImage: ObservableURLImage
-
+                    
     init(url: String) {
         observableURLImage = ObservableURLImage(url: url)
         observableURLImage.load()
     }
     
     var body: some View {
-        observableURLImage.image?.resizable().aspectRatio(contentMode: .fit)
+        ZStack {
+            CustomProgressView.init(isLoading: observableURLImage.isLoading, addBackground: false)
+            observableURLImage.image?.resizable().aspectRatio(contentMode: .fit)
+        }
     }
     
 }
