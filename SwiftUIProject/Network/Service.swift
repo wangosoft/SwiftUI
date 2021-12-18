@@ -13,7 +13,7 @@ protocol ServiceProtocol {
     func getFruitDetail(productId: String, completion: @escaping (_ response: FruitModel?, _ error: NetworkError?) -> Void)
 }
 
-class Service: ServiceProtocol {
+final class Service: ServiceProtocol {
     static let shared: Service = Service()
     
     func getFruits(completion: @escaping (_ response: FruitsModelResponse?, _ error: NetworkError?) -> Void) {

@@ -19,6 +19,14 @@ struct ServiceConstants {
     }
 }
 
+struct Storage {
+    static let database = "Database"
+    
+    struct Predicate {
+        static let equalId = "id = %@"
+    }
+}
+
 struct Padding {
     static let betweenItems: CGFloat = 5.0
     static let edge: CGFloat = 10.0
@@ -34,3 +42,6 @@ struct Colors {
     static let light = Color(.lightGray)
 }
 
+enum DatabaseEntityTypes: String {
+    case fruits = "Fruits"
+}
