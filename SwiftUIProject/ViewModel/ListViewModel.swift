@@ -9,9 +9,12 @@ import Foundation
 
 class ListViewModel: BaseViewModel {
     @Published var fruits: [FruitModel] = []
+    @Published var isShowing: Bool = false
 
     func getFruits() {
+        isShowing = true
         Service.shared.getFruits { response, error in
+            DispatchQueue.main.async { self.isShowing = false }
             if let fruits = response?.products {
                 DatabaseUtility.shared.deleteAllObjects(entity: .fruits)
                 DatabaseUtility.shared.storeObjects(entity: .fruits, fruits: fruits)

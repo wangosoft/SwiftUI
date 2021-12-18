@@ -8,7 +8,7 @@
 import SwiftUI
     
 struct CustomProgressView: View {
-    @State var isLoading = false
+    @Binding var isShowing: Bool
     var addBackground = true
     
     var body: some View {
@@ -17,7 +17,7 @@ struct CustomProgressView: View {
             .background(addBackground ? Colors.gray : .clear)
             .cornerRadius(Padding.cornerRadius)
             .shadow(radius: Padding.cornerRadius)
-            .opacity(isLoading ? 1 : 0)
+            .opacity(isShowing ? 1 : 0)
     }
 }
 

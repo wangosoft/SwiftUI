@@ -10,7 +10,7 @@ import SwiftUI
 
 final class ObservableURLImage : ObservableObject {
     @Published var image: Image?
-    @Published var isLoading: Bool = false
+    @Published var isShowing: Bool = false
 
     let url: String
             
@@ -19,10 +19,10 @@ final class ObservableURLImage : ObservableObject {
     }
     
     func load() {
-        self.isLoading = true
+        self.isShowing = true
         Service.shared.loadImage(urlString: url) { urlImage in
             DispatchQueue.main.async {
-                self.isLoading = false
+                self.isShowing = false
                 if let img = urlImage {
                     self.image = Image.init(uiImage: img)
                 }
@@ -42,7 +42,7 @@ struct URLImage: View {
     
     var body: some View {
         ZStack {
-            CustomProgressView.init(isLoading: observableURLImage.isLoading, addBackground: false)
+            CustomProgressView.init(isShowing: $observableURLImage.isShowing, addBackground: false)
             observableURLImage.image?.resizable().aspectRatio(contentMode: .fit)
         }
     }

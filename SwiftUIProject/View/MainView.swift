@@ -9,12 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var listViewModel: ListViewModel
-
-    init() {
-        listViewModel = ListViewModel()
-    }
-                    
+    @ObservedObject var listViewModel: ListViewModel = ListViewModel()
+              
     var body: some View {
         NavigationView {
             let columns: [GridItem] = [
@@ -31,6 +27,7 @@ struct MainView: View {
                         }
                     }.padding(Padding.edge)
                 }
+                CustomProgressView(isShowing: $listViewModel.isShowing, addBackground: true)
             }
             .navigationBarTitle(Text("Fruits"))
         }.onAppear() {
