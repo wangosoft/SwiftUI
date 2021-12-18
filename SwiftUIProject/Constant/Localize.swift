@@ -8,7 +8,6 @@
 import Foundation
 
 struct Localize {
-    
     struct General {
         static let empty = NSLocalizedString("", comment: "General")
         static let fruits = NSLocalizedString("Fruits", comment: "General")

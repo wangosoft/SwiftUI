@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     var fruit: FruitModel?
-    @ObservedObject var detailViewModel: DetailViewModel
+    @ObservedObject private var detailViewModel: DetailViewModel
 
     init(fruit: FruitModel?) {
         detailViewModel = DetailViewModel()

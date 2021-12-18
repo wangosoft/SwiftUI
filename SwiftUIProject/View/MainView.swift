@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var listViewModel: ListViewModel = ListViewModel()
+    @ObservedObject private var listViewModel: ListViewModel = ListViewModel()
 
     var body: some View {
         NavigationView {
@@ -21,9 +21,11 @@ struct MainView: View {
                 ScrollView {
                     LazyVGrid.init(columns: columns, spacing: Padding.edge) {
                         ForEach(listViewModel.fruits) { fruit in
-                            NavigationLink(destination: DetailView(fruit: fruit)) {
-                                ListView(fruit: fruit).frame(minWidth: 0, maxWidth: (UIScreen.main.bounds.size.width - Padding.edge * 3) / 2, maxHeight: 200)
+                            // NavigationLink(destination: DetailView(fruit: fruit)) {
+                            ListView(fruit: fruit).frame(minWidth: 0, maxWidth: (UIScreen.main.bounds.size.width - Padding.edge * 3) / 2, maxHeight: 200).onTapGesture {
+                                
                             }
+                            // }
                         }
                     }.padding(Padding.edge)
                 }
