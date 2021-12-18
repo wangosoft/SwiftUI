@@ -73,22 +73,24 @@ final class DatabaseUtility {
     }
     
     func storeObjects(entity: DatabaseEntityTypes, fruits: [FruitModel]) {
-        switch entity {
-        case .fruits:
-            for i in 0..<fruits.count {
-                let fruit = Fruits.init(context: managedObjectContext)
-                fruit.id = fruits[i].id
-                fruit.name = fruits[i].name
-                fruit.image = fruits[i].image
-                fruit.fruit_description = fruits[i].description
-                fruit.price = Int32(fruits[i].price)
+        deleteAllObjects(entity: entity) {
+            switch entity {
+            case .fruits:
+                for i in 0..<fruits.count {
+                    let fruit = Fruits.init(context: self.managedObjectContext)
+                    fruit.id = fruits[i].id
+                    fruit.name = fruits[i].name
+                    fruit.image = fruits[i].image
+                    fruit.fruit_description = fruits[i].description
+                    fruit.price = Int32(fruits[i].price)
+                }
             }
-        }
 
-        saveContext()
+            self.saveContext()
+        }
     }
     
-    func deleteAllObjects(entity: DatabaseEntityTypes) {
+    private func deleteAllObjects(entity: DatabaseEntityTypes, completion: @escaping () -> Void) {
         if let objects = fetch(entity: entity) {
             for object in objects {
                 if let objectData = object as? NSManagedObject {
@@ -98,7 +100,7 @@ final class DatabaseUtility {
         }
     }
     
-    func fetchObjects<T>(entity: DatabaseEntityTypes) -> T {
+    func fetchObjects<T>(entity: DatabaseEntityTypes) -> T? {
         if let objects = fetch(entity: entity) {
             switch entity {
             case .fruits:
@@ -110,10 +112,10 @@ final class DatabaseUtility {
                         }
                     }
                 }
-                return fruitsList as! T
+                return fruitsList as? T
             }
         }
-        return [] as! T
+        return nil
     }
     
     func update<T>(entity: DatabaseEntityTypes, withObject: T) {

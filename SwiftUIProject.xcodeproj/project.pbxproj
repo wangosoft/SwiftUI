@@ -26,6 +26,8 @@
 		CC957020276BED230041126F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701F276BED230041126F /* Service.swift */; };
 		CC98A32A276E6F6600DCA44F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A329276E6F6600DCA44F /* DetailViewModel.swift */; };
 		CC98A32C276E723300DCA44F /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32B276E723300DCA44F /* CustomProgressView.swift */; };
+		CC98A32E276E8C9600DCA44F /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32D276E8C9600DCA44F /* ErrorView.swift */; };
+		CC98A330276E8D4300DCA44F /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32F276E8D4300DCA44F /* Localize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		CC95701F276BED230041126F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		CC98A329276E6F6600DCA44F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		CC98A32B276E723300DCA44F /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		CC98A32D276E8C9600DCA44F /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		CC98A32F276E8D4300DCA44F /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 				CC95700E276BCD8F0041126F /* ListView.swift */,
 				CC7B6ECE276C089B00B18745 /* URLImage.swift */,
 				CC98A32B276E723300DCA44F /* CustomProgressView.swift */,
+				CC98A32D276E8C9600DCA44F /* ErrorView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				CC95701A276BEA9C0041126F /* AppConstants.swift */,
+				CC98A32F276E8D4300DCA44F /* Localize.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				CC957013276BDB960041126F /* BaseViewModel.swift in Sources */,
 				CC7B6EDC276CEACC00B18745 /* DatabaseUtility.swift in Sources */,
 				CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */,
+				CC98A330276E8D4300DCA44F /* Localize.swift in Sources */,
 				CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */,
 				CC7B6ED1276C973B00B18745 /* DetailView.swift in Sources */,
 				CC957020276BED230041126F /* Service.swift in Sources */,
@@ -385,6 +392,7 @@
 				CC95701E276BEB190041126F /* ListViewModel.swift in Sources */,
 				CC7B6EDA276CE90000B18745 /* Database.xcdatamodeld in Sources */,
 				CC95700F276BCD8F0041126F /* ListView.swift in Sources */,
+				CC98A32E276E8C9600DCA44F /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

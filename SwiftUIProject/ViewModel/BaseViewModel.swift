@@ -8,5 +8,7 @@
 import Foundation
 
 class BaseViewModel: ObservableObject {
-
+    @Published var isShowing: Bool = false
+    @Published var isShowError: Bool = false
+    @Published var errorDescription: String = Localize.General.empty
 }

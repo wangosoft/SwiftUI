@@ -40,6 +40,8 @@ struct Images {
 
 struct Colors {
     static let light = Color(.lightGray)
+    static let darkGray = Color(.darkGray)
+    static let black = Color(.black)
     static let gray = Color.init(red: 230/255, green: 230/255, blue: 230/255)
 }
 
