@@ -21,11 +21,9 @@ struct MainView: View {
                 ScrollView {
                     LazyVGrid.init(columns: columns, spacing: Padding.edge) {
                         ForEach(listViewModel.fruits) { fruit in
-                            // NavigationLink(destination: DetailView(fruit: fruit)) {
-                            ListView(fruit: fruit).frame(minWidth: 0, maxWidth: (UIScreen.main.bounds.size.width - Padding.edge * 3) / 2, maxHeight: 200).onTapGesture {
-                                
-                            }
-                            // }
+                             NavigationLink(destination: DetailView(fruit: fruit)) {
+                                ListView(fruit: fruit)
+                             }
                         }
                     }.padding(Padding.edge)
                 }
