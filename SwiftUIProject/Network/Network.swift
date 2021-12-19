@@ -17,13 +17,13 @@ final class Network: NetworkProtocol {
         
     func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else {
-            print("badUrl")
+            print("Bad Image Url")
             completion(nil)
             return
         }
         
         var request = URLRequest(url: url)
-        request.cachePolicy = .reloadIgnoringLocalCacheData
+        request.cachePolicy = .returnCacheDataElseLoad
         request.timeoutInterval = ServiceConstants.Config.timeout
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -32,6 +32,7 @@ final class Network: NetworkProtocol {
                 completion(nil)
             }
             guard let data = data else {
+                print("No Image Data")
                 completion(nil)
                 return
             }

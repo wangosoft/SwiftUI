@@ -35,7 +35,7 @@ struct Padding {
 }
 
 struct Images {
-    
+    static let noImage = UIImage.init(named: "no_image")
 }
 
 struct Colors {

@@ -25,6 +25,8 @@ final class ObservableURLImage : ObservableObject {
                 self.isShowing = false
                 if let img = urlImage {
                     self.image = Image.init(uiImage: img)
+                } else {
+                    self.image = Image.init(uiImage: Images.noImage!)
                 }
             }
         }
