@@ -7,10 +7,17 @@
 
 import Foundation
 import CoreData
-
-final class DatabaseUtility {
-    static let shared = DatabaseUtility()
+    
+final class DatabaseUtility: NSObject {
+    private static let sharedInstance: DatabaseUtility = DatabaseUtility()
         
+    private var persistentStoreType: String = NSSQLiteStoreType
+    
+    static func getSharedInstance(persistentStoreType: String = NSSQLiteStoreType) -> DatabaseUtility {
+        sharedInstance.persistentStoreType = persistentStoreType
+        return sharedInstance
+    }
+             
     private(set) lazy var managedObjectContext: NSManagedObjectContext = {
         let managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
@@ -31,7 +38,7 @@ final class DatabaseUtility {
 
     private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-
+                        
         let fileManager = FileManager.default
         let storeName = "\(Storage.database).sqlite"
 
@@ -40,7 +47,7 @@ final class DatabaseUtility {
         let persistentStoreURL = documentsDirectoryURL.appendingPathComponent(storeName)
 
         do {
-            try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+            try persistentStoreCoordinator.addPersistentStore(ofType: self.persistentStoreType,
                                                               configurationName: nil,
                                                               at: persistentStoreURL,
                                                               options: nil)
@@ -50,18 +57,23 @@ final class DatabaseUtility {
         
         return persistentStoreCoordinator
     }()
-
+    
+    
+        
     private func saveContext() {
-        do {
-            try managedObjectContext.save()
-        }
-        catch {
-            print("error storing context")
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            }
+            catch {
+                print("error storing context")
+            }
         }
     }
     
     private func fetch(entity: DatabaseEntityTypes, predicate: NSPredicate? = nil) -> [Any]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.rawValue)
+        fetchRequest.returnsObjectsAsFaults = false
         do {
             let objects = try managedObjectContext.fetch(fetchRequest)
             return objects
@@ -72,12 +84,13 @@ final class DatabaseUtility {
         }
     }
     
-    func storeObjects(entity: DatabaseEntityTypes, fruits: [FruitModel]) {
+    func storeObjects<T>(entity: DatabaseEntityTypes, objects: T) {
         deleteAllObjects(entity: entity) {
             switch entity {
             case .fruits:
+                let fruits = objects as? [FruitModel] ?? []
                 for i in 0..<fruits.count {
-                    let fruit = Fruits.init(context: self.managedObjectContext)
+                    let fruit = Fruits(context: self.managedObjectContext)
                     fruit.id = fruits[i].id
                     fruit.name = fruits[i].name
                     fruit.image = fruits[i].image
@@ -98,8 +111,9 @@ final class DatabaseUtility {
                 }
             }
         }
+        completion()
     }
-    
+        
     func fetchObjects<T>(entity: DatabaseEntityTypes) -> T? {
         if let objects = fetch(entity: entity) {
             switch entity {

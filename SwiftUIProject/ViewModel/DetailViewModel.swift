@@ -13,13 +13,13 @@ class DetailViewModel: BaseViewModel {
     func getFruitDetail(productId: String) {
         Service.shared.getFruitDetail(productId: productId) { response, error in
             if let fruit = response {
-                DatabaseUtility.shared.update(entity: .fruits, withObject: fruit)
+                DatabaseUtility.getSharedInstance().update(entity: .fruits, withObject: fruit)
                 DispatchQueue.main.async {
                     self.fruitDetail = fruit
                 }
             } else if let _ = error {
                 DispatchQueue.main.async {
-                    self.fruitDetail = DatabaseUtility.shared.fetchObjectsWithId(entity: .fruits, id: productId)
+                    self.fruitDetail = DatabaseUtility.getSharedInstance().fetchObjectsWithId(entity: .fruits, id: productId)
                 }
             }
         }

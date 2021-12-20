@@ -16,12 +16,12 @@ class ListViewModel: BaseViewModel {
         Service.shared.getFruits { response, error in
             DispatchQueue.main.async { self.isShowing = false }
             if let fruits = response?.products {
-                DatabaseUtility.shared.storeObjects(entity: .fruits, fruits: fruits)
+                DatabaseUtility.getSharedInstance().storeObjects(entity: .fruits, objects: fruits)
                 DispatchQueue.main.async {
                     self.fruits = fruits
                 }
             } else if let error = error {
-                if let fruits: [FruitModel] = DatabaseUtility.shared.fetchObjects(entity: .fruits) {
+                if let fruits: [FruitModel] = DatabaseUtility.getSharedInstance().fetchObjects(entity: .fruits) {
                     DispatchQueue.main.async {
                         self.fruits = fruits
                     }

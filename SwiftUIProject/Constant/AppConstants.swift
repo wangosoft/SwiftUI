@@ -45,6 +45,20 @@ struct Colors {
     static let gray = Color.init(red: 230/255, green: 230/255, blue: 230/255)
 }
 
+struct XCUnitTest {
+    struct Expectation {
+        static let waitAsyncListApiRequest = "waitAsyncListApiRequest"
+        static let waitAsyncDetailApiRequest = "waitAsyncDetailApiRequest"
+        static let waitAsyncLoadImageApiRequest = "waitAsyncLoadImageApiRequest"
+    }
+    struct MockData {
+        static let productId = "1"
+        static let imageUrl = "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/1.jpg"
+        static let fruit = [FruitModel(id: "100", name: "test", price: 100, image: "testImageUrl", description: "decription")]
+        static let updateWithFruit = [FruitModel(id: "101", name: "test1", price: 101, image: "testImageUrl1", description: "decription1")]
+    }
+}
+
 enum DatabaseEntityTypes: String {
     case fruits = "Fruits"
 }
