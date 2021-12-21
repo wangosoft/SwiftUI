@@ -20,7 +20,7 @@ struct MainView: View {
                 ScrollView {
                     LazyVGrid.init(columns: columns, spacing: Padding.edge) {
                         ForEach(listViewModel.fruits) { fruit in
-                            NavigationLink(destination: DetailView(fruit: fruit)) {
+                            NavigationLink(destination: DetailView(fruit: fruit)) { // NavigationLink destination View'i anında init ediyor ve lazy olarakta çalışmadığı için tüm listView'ler için bir detailView init edilmiş oluyor, SwiftUI'ın ilginç bug'lı bir yapısı, alternatifler üretilmeli.
                                 ListView(fruit: fruit)
                             }
                         }
