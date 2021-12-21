@@ -6,17 +6,15 @@
 //
 
 import SwiftUI
-
+ 
 struct DetailView: View {
-    
-    var fruit: FruitModel?
     @ObservedObject private var detailViewModel: DetailViewModel
 
+    var fruit: FruitModel?
+
     init(fruit: FruitModel?) {
+        self.fruit = fruit
         detailViewModel = DetailViewModel()
-        if let productId = fruit?.id {
-            detailViewModel.getFruitDetail(productId: productId)
-        }
     }
         
     var body: some View {
@@ -40,6 +38,10 @@ struct DetailView: View {
                 }
             } else {
                 Spacer()
+            }
+        }.onAppear() {
+            if let productId = fruit?.id {
+                detailViewModel.getFruitDetail(productId: productId)
             }
         }
     }

@@ -39,14 +39,14 @@ final class ObservableURLImage : ObservableObject {
 
 struct URLImage: View {
     @ObservedObject private var observableURLImage: ObservableURLImage
-        
+
     init(url: String, completion: @escaping (Data) -> () = { _ in }) {
         observableURLImage = ObservableURLImage(url: url)
         observableURLImage.load { data in
             completion(data)
         }
     }
-    
+        
     init(image: UIImage?) {
         observableURLImage = ObservableURLImage(url: Localize.General.empty)
         if let img = image {

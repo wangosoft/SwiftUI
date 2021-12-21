@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ListView: View {
     var fruit: FruitModel
-    
+
     var body: some View {
         VStack {
             if let image = fruit.image {
                 URLImage(url: image) { data in
                     DatabaseUtility.getSharedInstance().update(entity: .fruits, theObject: fruit, with: data, key: Storage.UpdateKeys.imageData)
                 }.frame(maxWidth: .infinity, idealHeight: 450, maxHeight: 450, alignment: .center)
-                 .padding(Padding.betweenItems)
+                .padding(Padding.betweenItems)
             } else {
                 URLImage(image: UIImage(data: fruit.imageData ?? Data()))
                     .frame(maxWidth: .infinity, idealHeight: 150, maxHeight: 150, alignment: .center)
