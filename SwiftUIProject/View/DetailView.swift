@@ -22,12 +22,24 @@ struct DetailView: View {
     var body: some View {
         VStack {
             if let fruit = detailViewModel.fruitDetail {
-                URLImage(url: fruit.image)
+                if let image = fruit.image {
+                    URLImage(url: image)
+                } else if let imageData = fruit.imageData, let image = UIImage(data: imageData) {
+                    URLImage(image: image)
+                }
                 Text(fruit.name).bold().padding(Padding.betweenItems)
                 Text("\(fruit.price)").foregroundColor(Colors.light).bold().padding(Padding.betweenItems)
                 Text("\(fruit.description ?? "")").foregroundColor(Colors.light).padding().multilineTextAlignment(.center)
             }
-            Spacer()
+            if detailViewModel.isShowError {
+                ErrorView.init(errorDescription: $detailViewModel.errorDescription) {
+                    if let productId = fruit?.id {
+                        detailViewModel.getFruitDetail(productId: productId)
+                    }
+                }
+            } else {
+                Spacer()
+            }
         }
     }
 }

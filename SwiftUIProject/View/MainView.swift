@@ -21,9 +21,9 @@ struct MainView: View {
                 ScrollView {
                     LazyVGrid.init(columns: columns, spacing: Padding.edge) {
                         ForEach(listViewModel.fruits) { fruit in
-                             NavigationLink(destination: DetailView(fruit: fruit)) {
+                              NavigationLink(destination: DetailView(fruit: fruit)) {
                                 ListView(fruit: fruit)
-                             }
+                              }
                         }
                     }.padding(Padding.edge)
                 }

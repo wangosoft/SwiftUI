@@ -7,24 +7,28 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 final class ObservableURLImage : ObservableObject {
     @Published var image: Image?
     @Published var isShowing: Bool = false
 
     let url: String
-            
+
     init(url: String) {
         self.url = url
     }
-    
-    func load() {
+
+    func load(completion: @escaping (Data) -> ()) {
         self.isShowing = true
         Service.shared.loadImage(urlString: url) { urlImage in
             DispatchQueue.main.async {
                 self.isShowing = false
                 if let img = urlImage {
-                    self.image = Image.init(uiImage: img)
+                    self.image = Image(uiImage: img)
+                    if let data = img.jpegData(compressionQuality: 1.0) {
+                        completion(data)
+                    }
                 } else {
                     self.image = Image.init(uiImage: Images.noImage!)
                 }
@@ -33,13 +37,19 @@ final class ObservableURLImage : ObservableObject {
     }
 }
 
-
 struct URLImage: View {
     @ObservedObject private var observableURLImage: ObservableURLImage
-                    
-    init(url: String) {
+        
+    init(url: String, completion: @escaping (Data) -> () = { _ in }) {
         observableURLImage = ObservableURLImage(url: url)
-        observableURLImage.load()
+        observableURLImage.load { data in
+            completion(data)
+        }
+    }
+    
+    init(image: UIImage) {
+        observableURLImage = ObservableURLImage(url: Localize.General.empty)
+        self.observableURLImage.image = Image(uiImage: image)
     }
     
     var body: some View {

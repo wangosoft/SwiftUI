@@ -13,13 +13,18 @@ class DetailViewModel: BaseViewModel {
     func getFruitDetail(productId: String) {
         Service.shared.getFruitDetail(productId: productId) { response, error in
             if let fruit = response {
-                DatabaseUtility.getSharedInstance().update(entity: .fruits, withObject: fruit)
+                DatabaseUtility.getSharedInstance().update(entity: .fruits, theObject: fruit, with: fruit.description, key: Storage.UpdateKeys.fruit_description)
                 DispatchQueue.main.async {
                     self.fruitDetail = fruit
                 }
-            } else if let _ = error {
+            } else if let fruitDetail: FruitModel? = DatabaseUtility.getSharedInstance().fetchObjectsWithId(entity: .fruits, id: productId) {
                 DispatchQueue.main.async {
-                    self.fruitDetail = DatabaseUtility.getSharedInstance().fetchObjectsWithId(entity: .fruits, id: productId)
+                    self.fruitDetail = fruitDetail
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.isShowError = true
+                    self.errorDescription = error?.localizedDescription ?? Localize.General.empty
                 }
             }
         }

@@ -66,17 +66,15 @@ class DatabaseOperationUnitTests: XCTestCase {
     func test_Update_OnDatabase() {
         // Arrange
         let databaseManager = DatabaseUtility.getSharedInstance(persistentStoreType: NSInMemoryStoreType)
-        expectation(forNotification: .NSManagedObjectContextDidSave, object: databaseManager.managedObjectContext) { _ in
-            return true
-        }
 
         // Act
-        databaseManager.update(entity: .fruits, withObject: XCUnitTest.MockData.updateWithFruit)
-
-        waitForExpectations(timeout: ServiceConstants.Config.timeout) { error in
-            // Assert
-            XCTAssertNil(error, "Update context changes did not occur")
-        }
+        databaseManager.update(entity: .fruits, theObject: XCUnitTest.MockData.updateWithFruit, with: XCUnitTest.MockData.fruit_description, key: Storage.UpdateKeys.fruit_description)
+        
+        let fruit: FruitModel? = databaseManager.fetchObjectsWithId(entity: .fruits, id: XCUnitTest.MockData.fruit.first!.id)
+        
+        // Assert
+        XCTAssertNotNil(fruit)
+        XCTAssertEqual(fruit?.description, XCUnitTest.MockData.fruit.first?.description)
     }
-
+    
 }

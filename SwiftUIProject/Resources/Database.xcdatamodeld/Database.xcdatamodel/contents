@@ -3,7 +3,7 @@
     <entity name="Fruits" representedClassName="Fruits" syncable="YES" codeGenerationType="class">
         <attribute name="fruit_description" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
-        <attribute name="image" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="price" attributeType="Integer 32" usesScalarValueType="YES"/>
     </entity>

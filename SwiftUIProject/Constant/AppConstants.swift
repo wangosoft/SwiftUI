@@ -25,6 +25,11 @@ struct Storage {
     struct Predicate {
         static let equalId = "id = %@"
     }
+    
+    struct UpdateKeys {
+        static let imageData = "imageData"
+        static let fruit_description = "fruit_description"
+    }
 }
 
 struct Padding {
@@ -52,6 +57,7 @@ struct XCUnitTest {
         static let waitAsyncLoadImageApiRequest = "waitAsyncLoadImageApiRequest"
     }
     struct MockData {
+        static let fruit_description = "fruit_description"
         static let productId = "1"
         static let imageUrl = "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/1.jpg"
         static let fruit = [FruitModel(id: "100", name: "test", price: 100, image: "testImageUrl", description: "decription")]

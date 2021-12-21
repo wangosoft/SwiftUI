@@ -9,7 +9,7 @@ import Foundation
 
 class ListViewModel: BaseViewModel {
     @Published var fruits: [FruitModel] = []
-
+    
     func getFruits() {
         isShowing = true
         isShowError = false
@@ -20,16 +20,14 @@ class ListViewModel: BaseViewModel {
                 DispatchQueue.main.async {
                     self.fruits = fruits
                 }
-            } else if let error = error {
-                if let fruits: [FruitModel] = DatabaseUtility.getSharedInstance().fetchObjects(entity: .fruits) {
-                    DispatchQueue.main.async {
-                        self.fruits = fruits
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.isShowError = true
-                        self.errorDescription = error.localizedDescription
-                    }
+            } else if let fruits: [FruitModel] = DatabaseUtility.getSharedInstance().fetchObjects(entity: .fruits), fruits.count > .zero {
+                DispatchQueue.main.async {
+                    self.fruits = fruits
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.isShowError = true
+                    self.errorDescription = error?.localizedDescription ?? Localize.General.empty
                 }
             }
         }
