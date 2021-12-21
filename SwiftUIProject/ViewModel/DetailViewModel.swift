@@ -11,7 +11,10 @@ class DetailViewModel: BaseViewModel {
     @Published var fruitDetail: FruitModel?
 
     func getFruitDetail(productId: String) {
+        isShowing = true
+        isShowError = false
         Service.shared.getFruitDetail(productId: productId) { response, error in
+            DispatchQueue.main.async { self.isShowing = false }
             if let fruit = response {
                 DatabaseUtility.getSharedInstance().update(entity: .fruits, theObject: fruit, with: fruit.description, key: Storage.UpdateKeys.fruit_description)
                 DispatchQueue.main.async {

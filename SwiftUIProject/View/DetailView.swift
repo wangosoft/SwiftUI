@@ -21,11 +21,12 @@ struct DetailView: View {
         
     var body: some View {
         VStack {
+            CustomProgressView(isShowing: $detailViewModel.isShowing, addBackground: true)
             if let fruit = detailViewModel.fruitDetail {
                 if let image = fruit.image {
                     URLImage(url: image)
-                } else if let imageData = fruit.imageData, let image = UIImage(data: imageData) {
-                    URLImage(image: image)
+                } else {
+                    URLImage(image: UIImage(data: fruit.imageData ?? Data()))
                 }
                 Text(fruit.name).bold().padding(Padding.betweenItems)
                 Text("\(fruit.price)").foregroundColor(Colors.light).bold().padding(Padding.betweenItems)

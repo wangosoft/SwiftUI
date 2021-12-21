@@ -30,7 +30,7 @@ final class ObservableURLImage : ObservableObject {
                         completion(data)
                     }
                 } else {
-                    self.image = Image.init(uiImage: Images.noImage!)
+                    self.image = Image(uiImage: Images.noImage!)
                 }
             }
         }
@@ -47,9 +47,13 @@ struct URLImage: View {
         }
     }
     
-    init(image: UIImage) {
+    init(image: UIImage?) {
         observableURLImage = ObservableURLImage(url: Localize.General.empty)
-        self.observableURLImage.image = Image(uiImage: image)
+        if let img = image {
+            self.observableURLImage.image = Image(uiImage: img)
+        } else {
+            self.observableURLImage.image = Image(uiImage: Images.noImage!)
+        }
     }
     
     var body: some View {
