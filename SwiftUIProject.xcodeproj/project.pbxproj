@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		CC7B6ECF276C089B00B18745 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ECE276C089B00B18745 /* URLImage.swift */; };
 		CC7B6ED1276C973B00B18745 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ED0276C973B00B18745 /* DetailView.swift */; };
+		CC7B6EDA276CE90000B18745 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6ED8276CE90000B18745 /* Database.xcdatamodeld */; };
+		CC7B6EDC276CEACC00B18745 /* DatabaseUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B6EDB276CEACC00B18745 /* DatabaseUtility.swift */; };
 		CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */; };
 		CC956FE3276BCBD30041126F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FE2276BCBD30041126F /* MainView.swift */; };
 		CC956FE5276BCBD40041126F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC956FE4276BCBD40041126F /* Assets.xcassets */; };
 		CC956FE8276BCBD40041126F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC956FE7276BCBD40041126F /* Preview Assets.xcassets */; };
-		CC956FF3276BCBD40041126F /* SwiftUIProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FF2276BCBD40041126F /* SwiftUIProjectTests.swift */; };
 		CC956FFE276BCBD40041126F /* SwiftUIProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC956FFD276BCBD40041126F /* SwiftUIProjectUITests.swift */; };
 		CC95700F276BCD8F0041126F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95700E276BCD8F0041126F /* ListView.swift */; };
 		CC957011276BD9680041126F /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC957010276BD9680041126F /* FruitModel.swift */; };
@@ -22,6 +23,12 @@
 		CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701A276BEA9C0041126F /* AppConstants.swift */; };
 		CC95701E276BEB190041126F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701D276BEB190041126F /* ListViewModel.swift */; };
 		CC957020276BED230041126F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95701F276BED230041126F /* Service.swift */; };
+		CC98A32A276E6F6600DCA44F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A329276E6F6600DCA44F /* DetailViewModel.swift */; };
+		CC98A32C276E723300DCA44F /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32B276E723300DCA44F /* CustomProgressView.swift */; };
+		CC98A32E276E8C9600DCA44F /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32D276E8C9600DCA44F /* ErrorView.swift */; };
+		CC98A330276E8D4300DCA44F /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A32F276E8D4300DCA44F /* Localize.swift */; };
+		CC98A338276F4C0B00DCA44F /* ApiRequestsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A337276F4C0B00DCA44F /* ApiRequestsUnitTests.swift */; };
+		CC98A33A276FAC5A00DCA44F /* DatabaseOperationUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC98A339276FAC5A00DCA44F /* DatabaseOperationUnitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,8 @@
 /* Begin PBXFileReference section */
 		CC7B6ECE276C089B00B18745 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		CC7B6ED0276C973B00B18745 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CC7B6ED9276CE90000B18745 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
+		CC7B6EDB276CEACC00B18745 /* DatabaseUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtility.swift; sourceTree = "<group>"; };
 		CC956FDD276BCBD30041126F /* SwiftUIProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC956FE0276BCBD30041126F /* SwiftUIProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectApp.swift; sourceTree = "<group>"; };
 		CC956FE2276BCBD30041126F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -51,7 +60,6 @@
 		CC956FE7276BCBD40041126F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC956FE9276BCBD40041126F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC956FEE276BCBD40041126F /* SwiftUIProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC956FF2276BCBD40041126F /* SwiftUIProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectTests.swift; sourceTree = "<group>"; };
 		CC956FF4276BCBD40041126F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC956FF9276BCBD40041126F /* SwiftUIProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC956FFD276BCBD40041126F /* SwiftUIProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIProjectUITests.swift; sourceTree = "<group>"; };
@@ -63,6 +71,12 @@
 		CC95701A276BEA9C0041126F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		CC95701D276BEB190041126F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		CC95701F276BED230041126F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		CC98A329276E6F6600DCA44F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		CC98A32B276E723300DCA44F /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		CC98A32D276E8C9600DCA44F /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		CC98A32F276E8D4300DCA44F /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		CC98A337276F4C0B00DCA44F /* ApiRequestsUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestsUnitTests.swift; sourceTree = "<group>"; };
+		CC98A339276FAC5A00DCA44F /* DatabaseOperationUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseOperationUnitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +109,18 @@
 			children = (
 				CC95700E276BCD8F0041126F /* ListView.swift */,
 				CC7B6ECE276C089B00B18745 /* URLImage.swift */,
+				CC98A32B276E723300DCA44F /* CustomProgressView.swift */,
+				CC98A32D276E8C9600DCA44F /* ErrorView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		CC7B6ED7276CE8DA00B18745 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC7B6ED8276CE90000B18745 /* Database.xcdatamodeld */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		CC956FD4276BCBD30041126F = {
@@ -122,6 +146,7 @@
 		CC956FDF276BCBD30041126F /* SwiftUIProject */ = {
 			isa = PBXGroup;
 			children = (
+				CC7B6ED7276CE8DA00B18745 /* Resources */,
 				CC957019276BEA8D0041126F /* Constant */,
 				CC957018276BE9D10041126F /* Utility */,
 				CC957015276BE1FD0041126F /* Network */,
@@ -148,8 +173,9 @@
 		CC956FF1276BCBD40041126F /* SwiftUIProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC956FF2276BCBD40041126F /* SwiftUIProjectTests.swift */,
 				CC956FF4276BCBD40041126F /* Info.plist */,
+				CC98A337276F4C0B00DCA44F /* ApiRequestsUnitTests.swift */,
+				CC98A339276FAC5A00DCA44F /* DatabaseOperationUnitTests.swift */,
 			);
 			path = SwiftUIProjectTests;
 			sourceTree = "<group>";
@@ -168,6 +194,7 @@
 			children = (
 				CC957012276BDB960041126F /* BaseViewModel.swift */,
 				CC95701D276BEB190041126F /* ListViewModel.swift */,
+				CC98A329276E6F6600DCA44F /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,6 +236,7 @@
 		CC957018276BE9D10041126F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CC7B6EDB276CEACC00B18745 /* DatabaseUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -217,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				CC95701A276BEA9C0041126F /* AppConstants.swift */,
+				CC98A32F276E8D4300DCA44F /* Localize.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -353,14 +382,20 @@
 				CC956FE3276BCBD30041126F /* MainView.swift in Sources */,
 				CC957017276BE2200041126F /* Network.swift in Sources */,
 				CC957013276BDB960041126F /* BaseViewModel.swift in Sources */,
+				CC7B6EDC276CEACC00B18745 /* DatabaseUtility.swift in Sources */,
 				CC956FE1276BCBD30041126F /* SwiftUIProjectApp.swift in Sources */,
+				CC98A330276E8D4300DCA44F /* Localize.swift in Sources */,
 				CC95701B276BEA9C0041126F /* AppConstants.swift in Sources */,
 				CC7B6ED1276C973B00B18745 /* DetailView.swift in Sources */,
 				CC957020276BED230041126F /* Service.swift in Sources */,
+				CC98A32C276E723300DCA44F /* CustomProgressView.swift in Sources */,
 				CC7B6ECF276C089B00B18745 /* URLImage.swift in Sources */,
+				CC98A32A276E6F6600DCA44F /* DetailViewModel.swift in Sources */,
 				CC957011276BD9680041126F /* FruitModel.swift in Sources */,
 				CC95701E276BEB190041126F /* ListViewModel.swift in Sources */,
+				CC7B6EDA276CE90000B18745 /* Database.xcdatamodeld in Sources */,
 				CC95700F276BCD8F0041126F /* ListView.swift in Sources */,
+				CC98A32E276E8C9600DCA44F /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC956FF3276BCBD40041126F /* SwiftUIProjectTests.swift in Sources */,
+				CC98A33A276FAC5A00DCA44F /* DatabaseOperationUnitTests.swift in Sources */,
+				CC98A338276F4C0B00DCA44F /* ApiRequestsUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +716,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CC7B6ED8276CE90000B18745 /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC7B6ED9276CE90000B18745 /* Database.xcdatamodel */,
+			);
+			currentVersion = CC7B6ED9276CE90000B18745 /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CC956FD5276BCBD30041126F /* Project object */;
 }

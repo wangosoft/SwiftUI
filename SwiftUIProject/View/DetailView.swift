@@ -6,28 +6,43 @@
 //
 
 import SwiftUI
-
+ 
 struct DetailView: View {
-    
+    @ObservedObject private var detailViewModel: DetailViewModel
+
     var fruit: FruitModel?
-    @ObservedObject var listViewModel: ListViewModel
 
     init(fruit: FruitModel?) {
-        listViewModel = ListViewModel()
-        if let productId = fruit?.id {
-            listViewModel.getFruitDetail(productId: productId)
-        }
+        self.fruit = fruit
+        detailViewModel = DetailViewModel()
     }
         
     var body: some View {
         VStack {
-            if let fruit = listViewModel.fruitDetail {
-                URLImage(url: fruit.image)
+            CustomProgressView(isShowing: $detailViewModel.isShowing, addBackground: true)
+            if let fruit = detailViewModel.fruitDetail {
+                if let image = fruit.image {
+                    URLImage(url: image)
+                } else {
+                    URLImage(image: UIImage(data: fruit.imageData ?? Data()))
+                }
                 Text(fruit.name).bold().padding(Padding.betweenItems)
                 Text("\(fruit.price)").foregroundColor(Colors.light).bold().padding(Padding.betweenItems)
                 Text("\(fruit.description ?? "")").foregroundColor(Colors.light).padding().multilineTextAlignment(.center)
             }
-            Spacer()
+            if detailViewModel.isShowError {
+                ErrorView.init(errorDescription: $detailViewModel.errorDescription) {
+                    if let productId = fruit?.id {
+                        detailViewModel.getFruitDetail(productId: productId)
+                    }
+                }
+            } else {
+                Spacer()
+            }
+        }.onAppear() {
+            if let productId = fruit?.id {
+                detailViewModel.getFruitDetail(productId: productId)
+            }
         }
     }
 }

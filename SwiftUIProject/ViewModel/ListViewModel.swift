@@ -8,27 +8,29 @@
 import Foundation
 
 class ListViewModel: BaseViewModel {
- 
     @Published var fruits: [FruitModel] = []
-    @Published var fruitDetail: FruitModel?
-
+    
     func getFruits() {
+        isShowing = true
+        isShowError = false
         Service.shared.getFruits { response, error in
+            DispatchQueue.main.async { self.isShowing = false }
             if let fruits = response?.products {
+                DatabaseUtility.getSharedInstance().storeObjects(entity: .fruits, objects: fruits)
                 DispatchQueue.main.async {
                     self.fruits = fruits
                 }
-            }
-        }
-    }
-    func getFruitDetail(productId: String) {
-        Service.shared.getFruitDetail(productId: productId) { response, error in
-            if let fruit = response {
+            } else if let fruits: [FruitModel] = DatabaseUtility.getSharedInstance().fetchObjects(entity: .fruits), fruits.count > .zero {
                 DispatchQueue.main.async {
-                    self.fruitDetail = fruit
+                    self.fruits = fruits
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.isShowError = true
+                    self.errorDescription = error?.localizedDescription ?? Localize.General.empty
                 }
             }
         }
     }
-    
 }
+

@@ -8,30 +8,33 @@
 import SwiftUI
 
 struct MainView: View {
-    
-    @ObservedObject var listViewModel: ListViewModel
-    
-    init() {
-        listViewModel = ListViewModel()
-    }
-        
+    @ObservedObject private var listViewModel: ListViewModel = ListViewModel()
+
     var body: some View {
         NavigationView {
             let columns: [GridItem] = [
                 GridItem(.flexible()),
                 GridItem(.flexible())
             ]
-            
-            ScrollView {
-                LazyVGrid.init(columns: columns, spacing: Padding.edge) {
-                    ForEach(listViewModel.fruits) { fruit in
-                        NavigationLink(destination: DetailView(fruit: fruit)) {
-                            ListView(fruit: fruit).frame(minWidth: 0, maxWidth: (UIScreen.main.bounds.size.width - Padding.edge * 3) / 2, maxHeight: 200)
+            ZStack {
+                ScrollView {
+                    LazyVGrid.init(columns: columns, spacing: Padding.edge) {
+                        ForEach(listViewModel.fruits) { fruit in
+                            NavigationLink(destination: DetailView(fruit: fruit)) { // NavigationLink destination View'i anında init ediyor ve lazy olarakta çalışmadığı için tüm listView'ler için bir detailView init edilmiş oluyor, SwiftUI'ın ilginç bug'lı bir yapısı, alternatifler üretilmeli.
+                                ListView(fruit: fruit)
+                            }
                         }
+                    }.padding(Padding.edge)
+                }
+                CustomProgressView(isShowing: $listViewModel.isShowing, addBackground: true)
+                    
+                if listViewModel.isShowError {
+                    ErrorView.init(errorDescription: $listViewModel.errorDescription) {
+                        listViewModel.getFruits()
                     }
-                }.padding(Padding.edge)
+                }
             }
-            .navigationBarTitle(Text("Fruits"))
+            .navigationBarTitle(Text(Localize.General.fruits))
         }.onAppear() {
             self.listViewModel.getFruits()
         }
