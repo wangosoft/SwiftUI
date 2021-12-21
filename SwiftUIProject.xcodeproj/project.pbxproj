@@ -150,7 +150,6 @@
 				CC957019276BEA8D0041126F /* Constant */,
 				CC957018276BE9D10041126F /* Utility */,
 				CC957015276BE1FD0041126F /* Network */,
-				CC957014276BE1F50041126F /* Extension */,
 				CC95700D276BCD560041126F /* Model */,
 				CC95700C276BCD4F0041126F /* View */,
 				CC95700B276BCD490041126F /* ViewModel */,
@@ -215,13 +214,6 @@
 				CC957010276BD9680041126F /* FruitModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CC957014276BE1F50041126F /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		CC957015276BE1FD0041126F /* Network */ = {
